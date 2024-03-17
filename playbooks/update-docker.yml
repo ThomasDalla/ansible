@@ -6,7 +6,7 @@
   tasks:
     - name: Update and (re)start services
       community.docker.docker_compose:
-        project_src: "{{ ansible_env.HOME }}/{{ docker_project_src }}"
+        project_src: "{{ lookup('env','HOME') }}/{{ docker_project_src }}"
         pull: true
         build: true
         state: present
