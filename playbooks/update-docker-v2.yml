@@ -6,7 +6,7 @@
   tasks:
     - name: Update and (re)start services
       community.docker.docker_compose_v2:
-        project_src: "{{ lookup('env','HOME') }}/{{ docker_project_src }}"
+        project_src: "~/{{ docker_project_src }}"
         pull: policy
         build: policy
         state: present
