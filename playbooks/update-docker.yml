@@ -1,0 +1,13 @@
+---
+- name: Updating docker
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Update and (re)start services
+      community.docker.docker_compose:
+        project_src: "{{ docker_project_src }}"
+        pull: true
+        build: true
+        state: present
+        recreate: smart
