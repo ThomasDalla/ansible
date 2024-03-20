@@ -1,0 +1,14 @@
+---
+- name: Security updates
+  hosts: all
+  become: true
+
+  tasks:
+
+    - name: Security updates on RHEL-based Systems
+      when: ansible_os_family == 'RedHat'
+      dnf:
+        name: '*'
+        state: latest
+        update_cache: true
+        security: true

@@ -9,7 +9,7 @@
       apt:
         update_cache: true
         upgrade: safe
-        autoremove>]: true
+        autoremove: true
 
     - name: Update RHEL-based Systems
       when: ansible_os_family == 'RedHat'
