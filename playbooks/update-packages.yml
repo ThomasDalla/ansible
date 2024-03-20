@@ -17,7 +17,11 @@
         name: '*'
         state: latest
         update_cache: true
-        autoremove: true
+    
+    - name: Autoremove unneeded packages installed as dependencies
+      when: ansible_os_family == 'RedHat'
+      dnf:
+        autoremove: yes
 
     - name: Update Alpine-based Systems
       when: ansible_os_family == 'Alpine'
