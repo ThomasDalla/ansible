@@ -8,13 +8,16 @@
       when: ansible_os_family == 'Debian'
       apt:
         update_cache: true
-        upgrade: dist
+        upgrade: safe
+        autoremove>]: true
 
     - name: Update RHEL-based Systems
       when: ansible_os_family == 'RedHat'
       dnf:
         name: '*'
         state: latest
+        update_cache: true
+        autoremove: true
 
     - name: Update Alpine-based Systems
       when: ansible_os_family == 'Alpine'
