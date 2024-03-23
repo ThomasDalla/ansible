@@ -7,7 +7,7 @@
   tasks:
     - name: Update and (re)start services
       community.docker.docker_compose_v2:
-        project_src: "~/{{ docker_project_src }}"
+        project_src: "/var/services/homes/{{ docker_project_src }}"
         docker_cli: "{{ docker_cli }}"
         pull: always
         build: policy
